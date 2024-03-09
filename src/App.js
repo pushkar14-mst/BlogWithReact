@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Blog from "./components//Blog.js";
+
+import "./App.css";
+import { Route, Routes } from "react-router";
+import LoginPage from "./pages/LoginPage/LoginPage.jsx";
+import UserProfilePage from "./pages/UserProfilePage/UserProfilePage.jsx";
+import CreatePostPage from "./pages/CreatePostPage/CreatePostPage.jsx";
+import PostDetailPage from "./pages/PostDetailPage/PostDetailPage.jsx";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Blog />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/user-profile" element={<UserProfilePage />} />
+      <Route path="*" element={<h1>Not Found</h1>} />
+      <Route path="/create-post" element={<CreatePostPage />} />
+      <Route path="post/:title" element={<PostDetailPage />} />
+    </Routes>
   );
 }
 
